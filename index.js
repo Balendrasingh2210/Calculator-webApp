@@ -8,7 +8,8 @@ for(item of buttons){
         
         if (buttonText == "÷"){
             buttonText = "/";
-            screenValue +=buttonText;
+            // screenValue +=buttonText;
+            screenValue += '÷';
             screen.textContent = screenValue;
         }
         else if(buttonText == "AC"){
@@ -20,7 +21,13 @@ for(item of buttons){
             var del = screen.textContent;
             screen.textContent = del.substr(0,del.length-1);
         }
+        else if(buttonText == "x"){
+            screenValue += 'x';
+            screen.textContent = screenValue;
+        }
         else if(buttonText == '='){
+            screenValue=screenValue.replace(/x/g, "*");
+            screenValue=screenValue.replace(/÷/g, "/");
             screen.textContent = eval(screenValue);
         }
         else{
